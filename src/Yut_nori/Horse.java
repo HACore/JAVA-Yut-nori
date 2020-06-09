@@ -1,7 +1,7 @@
 package Yut_nori;
 
 public class Horse {
-  int position = -1;
+	private int position = -1;
 	
 	int getposition() {
 		return this.position;
@@ -39,8 +39,17 @@ public class Horse {
 		case 27:
 			this.position += d;
 		default:
-			//여기...20~24사이...case 나눠야할듯
-			this.position += d;
+			if(position>=20 && position<=24) {
+				if(d>=(25-position)) {
+					this.position = 15+(d-(25-position));
+				}
+				else {
+					this.position += d;
+				}
+			}
+			else {
+				this.position += d;
+			}
 		}
 	}
 }
