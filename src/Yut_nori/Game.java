@@ -2,7 +2,7 @@ package Yut_nori;
 
 public class Game {
 
-	Board[] b = new Board[29];
+	Board[] b = new Board[30];
 
 	Game(){
     
@@ -22,12 +22,8 @@ public class Game {
 		for(int i=0; i<5; i++) {
 			b[i+20].x = 600-83*(i+1);
 			b[i+20].y = 100+83*(i+1);
-		}
-		for(int i=0; i<2; i++) {
 			b[i+25].x = 100+83*(i+1);
 			b[i+25].y = 100+83*(i+1);
-			b[i+27].x = 100+83*(i+4);
-			b[i+27].y = 100+83*(i+4);
 		}
 	}
 	
