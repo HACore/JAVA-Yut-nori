@@ -3,7 +3,7 @@ import java.io.*;
 
 //thread.interrupt(); 시켜서 게임 끝날 때 종료하면 될듯
 
-public class autosave {
+public class autosave { //이건 그냥... 실행시킬 때 이렇게 시키면 되지않을까 싶어서 해놓은 거지 별다른 의미는 없어
 
 	public static void main(String[] args) {
 		
