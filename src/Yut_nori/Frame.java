@@ -47,7 +47,8 @@ public class Frame extends JFrame{
 		button1.setPreferredSize(new Dimension(700,80));
 		button2.setPreferredSize(new Dimension(700,80));
 		
-		Color sky = new Color(208,223,239);
+		//Color sky = new Color(208,223,239);
+		Color sky = new Color(153,217,234);
 		
 		// left 버튼
 		JButton lb = new JButton("← LEFT");
@@ -93,14 +94,14 @@ public class Frame extends JFrame{
 	    labelP1.setHorizontalAlignment(SwingConstants.LEFT);
 	    labelP1.setPreferredSize(new Dimension(320,120));
 	    labelP1.setOpaque(true);
-	    labelP1.setBackground(sky);
+	    labelP1.setBackground(Color.white);
 	    
 	    JLabel labelP2 = new JLabel();
 	    labelP2.setText("Player2");
 	    labelP2.setHorizontalAlignment(SwingConstants.LEFT);
 	    labelP2.setPreferredSize(new Dimension(320,120));
 	    labelP2.setOpaque(true);
-	    labelP2.setBackground(sky);
+	    labelP2.setBackground(Color.white);
 	      
 	    horsepl.add(labelP1);
 	    horsepl.add(labelP2);
