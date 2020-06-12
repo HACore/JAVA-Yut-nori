@@ -53,3 +53,45 @@ public class Horse {
 		}
 	}
 }
+
+class HorsePanel extends JPanel{
+	
+	ImageIcon imageM;
+	ImageIcon imageY;
+	JPanel Horses1 = new JPanel();
+	JPanel Horses2 = new JPanel();
+	JLabel p1 = new JLabel("Player1");
+	JLabel p2 = new JLabel("Player2");
+	JLabel image1 = new JLabel();
+	JLabel image2 = new JLabel();
+	
+	public HorsePanel() {
+		setLayout(null);
+		setBounds(0, 0, 1, 1);
+		
+		Horses1.setLayout(new GridLayout(1,5));
+		Horses2.setLayout(new GridLayout(1,5));
+		
+		imageM = new ImageIcon("../image/M.PNG");
+		imageY = new ImageIcon("../image/Y.PNG");
+		
+		image1 = new JLabel(imageM);
+		image2 = new JLabel(imageY);
+		
+		Horses1.add(p1);
+		Horses1.add(image1);
+		Horses1.add(image1);
+		Horses1.add(image1);
+		Horses1.add(image1);
+		
+		Horses2.add(p2);
+		Horses2.add(image2);
+		Horses2.add(image2);
+		Horses2.add(image2);
+		Horses2.add(image2);
+		
+		
+		this.add(Horses1);
+		this.add(Horses2);
+	}
+}
