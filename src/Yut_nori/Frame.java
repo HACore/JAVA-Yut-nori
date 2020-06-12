@@ -86,6 +86,7 @@ public class Frame extends JFrame{
 		setVisible(true);
 	}
 	
+	// left 버튼 누르면 l이 선택되게. 이것은 다른 코드 보면서 char c -> int c로 바꿔줘도 됨
 	class Left implements ActionListener {
 		
 		@Override
@@ -93,6 +94,10 @@ public class Frame extends JFrame{
 			c = 'l';
 		}
 	}
+	// left 버튼 누르면 r
+	class Left implements ActionListener {
+		
+		@Override
 	class Right implements ActionListener {
 		
 		@Override
@@ -100,6 +105,7 @@ public class Frame extends JFrame{
 			c = 'r';
 		}
 	}
+	// 윷 던지는 버튼
 	class Throw implements ActionListener {
 		
 		@Override
