@@ -27,7 +27,7 @@ public class Frame extends JFrame{
 		// 2,1 grid로 나눠 왼쪽은 판, 오른쪽은 말 윷 등등
 		setLayout(new GridLayout(1,2));
 		
-		// 왼쪽 패널
+		// 왼쪽 패널. background로 이미지 넣어줌 
 		File file = new File(".");
 		String path = file.getAbsolutePath();
 		ImageIcon icon = new ImageIcon(path+"\\image\\board.png");
