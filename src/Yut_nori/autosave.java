@@ -26,7 +26,7 @@ class Mscore implements Runnable {
 	public void run() {
 			try {
 				File file = new File("../result.txt");
-				PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+				PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file, true)));
 				pw.print("Player1: ");
 				pw.println(p1.score);
 				pw.close();
@@ -48,7 +48,7 @@ class Yscore implements Runnable {
 	public void run() {
 			try {
 				File file = new File("../result.txt");
-				PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+				PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file, true)));
 				pw.print("Player2: ");
 				pw.println(p2.score);
 				pw.close();
