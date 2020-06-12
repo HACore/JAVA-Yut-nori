@@ -1,6 +1,8 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+
 import javax.swing.*;
 
 @SuppressWarnings("serial")
@@ -26,7 +28,14 @@ public class Frame extends JFrame{
 		setLayout(new GridLayout(1,2));
 		
 		// 왼쪽 패널
-		JPanel lpanel = new JPanel();
+		File file = new File(".");
+		String path = file.getAbsolutePath();
+		ImageIcon icon = new ImageIcon(path+"\\image\\board.png");
+		JPanel lpanel = new JPanel() {		
+			public void paintComponent(Graphics g) {
+				g.drawImage(icon.getImage(),0,0,650,650,null);
+			}
+		};
 		lpanel.setPreferredSize(new Dimension(700,700));
 		
 		// 오른쪽 패널
@@ -37,7 +46,7 @@ public class Frame extends JFrame{
 		button2.setPreferredSize(new Dimension(700,100));
 		
 		// left 버튼
-		JButton lb = new JButton("Left");
+		JButton lb = new JButton("LEFT");
 		Left lbutton = new Left();
 		lb.addActionListener(lbutton);
 		lb.setPreferredSize(new Dimension(330,80));
@@ -46,7 +55,7 @@ public class Frame extends JFrame{
 		// lb.setEnabled(true);
 		
 		// right 버튼
-		JButton rb = new JButton("Right");
+		JButton rb = new JButton("RIGHT");
 		Right rbutton = new Right();
 		rb.addActionListener(rbutton);
 		rb.setPreferredSize(new Dimension(330,80));
@@ -55,7 +64,7 @@ public class Frame extends JFrame{
 		// rb.setEnabled(true);
 		
 		// throw 버튼
-		JButton tr = new JButton("Throw");
+		JButton tr = new JButton("THROW YUT");
 		Right trbutton = new Right();
 		tr.addActionListener(trbutton);
 		tr.setPreferredSize(new Dimension(665,80));
@@ -95,7 +104,7 @@ public class Frame extends JFrame{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// 윷 던지기
+			// 윷 던지기 코드 삽입 바람
 		}
 	}
 }
