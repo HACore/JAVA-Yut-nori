@@ -1,10 +1,28 @@
-package javateam;
-
 import java.io.*;
 
-//thread.interrupt(); ½ÃÄÑ¼­ °ÔÀÓ ³¡³¯ ¶§ Á¾·áÇÏ¸é µÇÁö ¾ÊÀ»±î
+
+//thread.interrupt(); ì‹œì¼œì„œ ê²Œì„ ëë‚  ë•Œ ì¢…ë£Œí•˜ë©´ ë ë“¯
+
+public class autosave {
+
+	public static void main(String[] args) {
+		
+		Player player1 = new Player();
+		Player player2 = new Player();
+
+		Mscore p1 = new Mscore(player1);
+		Yscore p2 = new Yscore(player2);
+		
+		new Thread(p1).start();
+		new Thread(p2).start();
+	}
+
+}
 class Mscore implements Runnable {
-	Player p1;//ÀÌ°Å ±Ùµ¥ ÇÃ·¹ÀÌ¾î Á¤º¸ ¾²·Á¸é ÇÃ·¹ÀÌ¾î ÀÖ´Â °÷¿¡(?) °°ÀÌ µÖ¾ß ÇÒ °Í °°¾î... ¾Æ´Ï¸é µû·Î Á¤º¸ ºÒ·¯¿Ã ¼ö ÀÖ³ª¤Ì
+	Player p1;
+	Mscore(Player p){
+		this.p1 = p;
+	}
 	public void run() {
 			try {
 				File file = new File("../result.txt");
@@ -24,6 +42,9 @@ class Mscore implements Runnable {
 
 class Yscore implements Runnable {
 	Player p2;
+	Yscore(Player p){
+		this.p2 = p;
+	}
 	public void run() {
 			try {
 				File file = new File("../result.txt");
