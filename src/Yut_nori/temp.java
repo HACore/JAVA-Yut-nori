@@ -4,8 +4,8 @@ import javax.swing.*;
 
 public class temp extends JFrame{
 
-	ImageIcon imageM = new ImageIcon("../image/M.PNG");//이건 정상적인 명륜이
-	ImageIcon imageY = new ImageIcon("../image/Y.PNG");//정상 율전이
+	ImageIcon imageM = new ImageIcon("../image/M.PNG");
+	ImageIcon imageY = new ImageIcon("../image/Y.PNG");
 	
 	JButton m1 = new JButton(imageM); JButton m2 = new JButton(imageM);
 	JButton m3 = new JButton(imageM); JButton m4 = new JButton(imageM);
@@ -47,7 +47,7 @@ public class temp extends JFrame{
 	//그리고 버튼클릭처럼 이벤트를 임의로 하나 만들어서 전체 게임에서 잡아먹히는 순간이 나오면 거기 조건문에
 	//임의로 만든 이벤트를 바로 실행시켜서 말 위치를 초기값으로 되돌리고 싶은데 전체 게임에서 어떻게 돌아갈지 몰라서 일단 남겨뒀어
 	
-	public void setting () {//말 초기위치 설정.
+	public void setting () {//말 초기위치 설정. 근데 진짜 이렇게 말 하나하나 다 직접 설정하고싶지 않은데...ㄸㄹㄹ
 		m1.setSize(30,30); m1.setLocation(100, 0);
 		m2.setSize(30,30); m2.setLocation(100, 0);
 		m3.setSize(30,30); m3.setLocation(100, 0);
