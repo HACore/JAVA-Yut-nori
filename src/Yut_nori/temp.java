@@ -1,20 +1,18 @@
-package javateam;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class temp extends JFrame{
 
-	ImageIcon imageM = new ImageIcon("../image/M.PNG");//ÀÌ°Ç Á¤»óÀûÀÎ ¸í·ûÀÌ
-	ImageIcon imageY = new ImageIcon("../image/Y.PNG");//Á¤»ó À²ÀüÀÌ
+	ImageIcon imageM = new ImageIcon("../image/M.PNG");//ì´ê±´ ì •ìƒì ì¸ ëª…ë¥œì´
+	ImageIcon imageY = new ImageIcon("../image/Y.PNG");//ì •ìƒ ìœ¨ì „ì´
 	
 	JButton m1 = new JButton(imageM); JButton m2 = new JButton(imageM);
 	JButton m3 = new JButton(imageM); JButton m4 = new JButton(imageM);
 	JButton y1 = new JButton(imageY); JButton y2 = new JButton(imageY);
 	JButton y3 = new JButton(imageY); JButton y4 = new JButton(imageY);
 	
-	temp(){//ÀüÃ¼ ÇÁ·¹ÀÓ ´ëÃ¼¿ëÀÓ... ÀüÃ¼ ÇÁ·¹ÀÓÀ¸·Î ¿Å±æ°Å¾ß
+	temp(){//ì „ì²´ í”„ë ˆì„ ëŒ€ì²´ìš©ì„... ì „ì²´ í”„ë ˆì„ìœ¼ë¡œ ì˜®ê¸¸ê±°ì•¼
 		
 		m1.setOpaque(false); m2.setOpaque(false);
 		m3.setOpaque(false); m4.setOpaque(false);
@@ -33,8 +31,8 @@ public class temp extends JFrame{
 	}
 	
 	class ButtonClickListener implements ActionListener {
-		//ÀÌ°Ô position ¹Ş¾Æ¿Ô´Ù´Â ÀüÁ¦ ÇÏ¿¡ ±×°É·Î ¼­¿µÀÌ ÇÁ·¹ÀÓ¿¡¼­ °íÁ¤ÁÂÇ¥¸¦ ¾ò¾î¿Â°É·Î Ä£°Å¾ß.
-		//b[i].x, y ¶ó°í »ı°¢ÇÏ¸é µÉµí. ¹®Á¦´Â x, y¸¦ ¾îµğ¼­ ¾îÄÉ °¡Á®¿À´À³Ä...
+		//ì´ê²Œ position ë°›ì•„ì™”ë‹¤ëŠ” ì „ì œ í•˜ì— ê·¸ê±¸ë¡œ ì„œì˜ì´ í”„ë ˆì„ì—ì„œ ê³ ì •ì¢Œí‘œë¥¼ ì–»ì–´ì˜¨ê±¸ë¡œ ì¹œê±°ì•¼.
+		//b[i].x, y ë¼ê³  ìƒê°í•˜ë©´ ë ë“¯. ë¬¸ì œëŠ” x, yë¥¼ ì–´ë””ì„œ ì–´ì¼€ ê°€ì ¸ì˜¤ëŠëƒ...
 		int positionx = 20;
 		int positiony = 20;
 		
@@ -42,14 +40,14 @@ public class temp extends JFrame{
 			if(e.getSource() == m1) {
 				m1.setLocation(positionx, positiony);
 			}
-			//ÀÌ·±½ÄÀ¸·Î Âß m1~y4±îÁö... ±Ùµ¥ ³Ê¹« ±æ¾î¼­ ¹öÆ° Å¬·¡½º¸¦ µû·Î ¸¸µé¾î¼­ Å¬·¡½º¿¡ ´ëÇÑ °É·Î ÅüÄ¡°í½Í±äÇÑµ¥
-			//¹öÆ° Å¬·¡½º¸¦ ¸¸µå´Ï±î »ı°¢º¸´Ù Á¦¾àÀÌ ¸¹¾ÆÁö´õ¶ó°í ±Ùµ¥ ÀÌ°Íµµ position ÁÂÇ¥ ¸ø¹Ş¾Æ¿À¸é ¶È°°À» °Í °°±äÇØ
+			//ì´ëŸ°ì‹ìœ¼ë¡œ ì­‰ m1~y4ê¹Œì§€... ê·¼ë° ë„ˆë¬´ ê¸¸ì–´ì„œ ë²„íŠ¼ í´ë˜ìŠ¤ë¥¼ ë”°ë¡œ ë§Œë“¤ì–´ì„œ í´ë˜ìŠ¤ì— ëŒ€í•œ ê±¸ë¡œ í‰ì¹˜ê³ ì‹¶ê¸´í•œë°
+			//ë²„íŠ¼ í´ë˜ìŠ¤ë¥¼ ë§Œë“œë‹ˆê¹Œ ìƒê°ë³´ë‹¤ ì œì•½ì´ ë§ì•„ì§€ë”ë¼ê³  ê·¼ë° ì´ê²ƒë„ position ì¢Œí‘œ ëª»ë°›ì•„ì˜¤ë©´ ë˜‘ê°™ì„ ê²ƒ ê°™ê¸´í•´
 		}
 	}
-	//±×¸®°í ¹öÆ°Å¬¸¯Ã³·³ ÀÌº¥Æ®¸¦ ÀÓÀÇ·Î ÇÏ³ª ¸¸µé¾î¼­ ÀüÃ¼ °ÔÀÓ¿¡¼­ Àâ¾Æ¸ÔÈ÷´Â ¼ø°£ÀÌ ³ª¿À¸é °Å±â Á¶°Ç¹®¿¡
-	//ÀÓÀÇ·Î ¸¸µç ÀÌº¥Æ®¸¦ ¹Ù·Î ½ÇÇà½ÃÄÑ¼­ ¸» À§Ä¡¸¦ ÃÊ±â°ªÀ¸·Î µÇµ¹¸®°í ½ÍÀºµ¥ ÀüÃ¼ °ÔÀÓ¿¡¼­ ¾î¶»°Ô µ¹¾Æ°¥Áö ¸ô¶ó¼­ ÀÏ´Ü ³²°Üµ×¾î
+	//ê·¸ë¦¬ê³  ë²„íŠ¼í´ë¦­ì²˜ëŸ¼ ì´ë²¤íŠ¸ë¥¼ ì„ì˜ë¡œ í•˜ë‚˜ ë§Œë“¤ì–´ì„œ ì „ì²´ ê²Œì„ì—ì„œ ì¡ì•„ë¨¹íˆëŠ” ìˆœê°„ì´ ë‚˜ì˜¤ë©´ ê±°ê¸° ì¡°ê±´ë¬¸ì—
+	//ì„ì˜ë¡œ ë§Œë“  ì´ë²¤íŠ¸ë¥¼ ë°”ë¡œ ì‹¤í–‰ì‹œì¼œì„œ ë§ ìœ„ì¹˜ë¥¼ ì´ˆê¸°ê°’ìœ¼ë¡œ ë˜ëŒë¦¬ê³  ì‹¶ì€ë° ì „ì²´ ê²Œì„ì—ì„œ ì–´ë–»ê²Œ ëŒì•„ê°ˆì§€ ëª°ë¼ì„œ ì¼ë‹¨ ë‚¨ê²¨ë’€ì–´
 	
-	public void setting () {//¸» ÃÊ±âÀ§Ä¡ ¼³Á¤.
+	public void setting () {//ë§ ì´ˆê¸°ìœ„ì¹˜ ì„¤ì •.
 		m1.setSize(30,30); m1.setLocation(100, 0);
 		m2.setSize(30,30); m2.setLocation(100, 0);
 		m3.setSize(30,30); m3.setLocation(100, 0);
