@@ -18,7 +18,7 @@ public class autosave { //이건 그냥... 실행시킬 때 이렇게 시키면 
 	}
 
 }
-class Mscore implements Runnable {
+class Mscore implements Runnable { //명륜이점수(플레이어1)
 	Player p1;
 	Mscore(Player p){
 		this.p1 = p;
@@ -40,7 +40,7 @@ class Mscore implements Runnable {
 	}
 }
 
-class Yscore implements Runnable {
+class Yscore implements Runnable { //율전이점수(플레이어2)
 	Player p2;
 	Yscore(Player p){
 		this.p2 = p;
