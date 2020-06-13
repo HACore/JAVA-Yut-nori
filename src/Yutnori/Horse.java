@@ -1,4 +1,4 @@
-package Yut_nori;
+package Yutnori;
 
 public class Horse {
 

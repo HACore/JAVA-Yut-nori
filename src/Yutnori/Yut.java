@@ -1,8 +1,8 @@
-package Yut_nori;
+package Yutnori;
 
 import java.util.Random;
 import java.awt.*;
-import java.awt.event.*;
+//import java.awt.event.*;
 import javax.swing.*;
 
 public class Yut {
@@ -18,7 +18,7 @@ public class Yut {
 		}
 		motion(move);
 		
-		if(move == 0) move = -1;
+//		if(move == 0) move = -1;
 		
 		return move;
 	}
