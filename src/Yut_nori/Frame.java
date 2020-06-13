@@ -123,6 +123,10 @@ public class Frame extends JFrame{
 		setVisible(true);
 	}
 	
+	char ReturnC {
+		return c;
+	}
+	
 	class Left implements ActionListener {
 		
 		@Override
