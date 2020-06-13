@@ -1,14 +1,8 @@
 package Yutnori;
 
 public class Board {
-
-	// position
-	int x,y;
-	// player num in that position
-	int player = 0;
-	int opponent = 0;
 	
-	Board[] pos = new Board[30];
+	Position[] pos = new Position[30];
 	
 	public Board() {
 		// init Board position
@@ -31,4 +25,17 @@ public class Board {
 			pos[i+25].y = 100+83*(i+1);
 		}
 	}
+	
+	public void setHorse(int idx, Horse horse) {
+		pos[idx].player = horse;
+	}
+}
+
+class Position {
+	
+	int x,y;
+	// player num in that position
+	Horse player;
+//	int player = 0;
+	int opponent = 0;
 }

@@ -48,22 +48,22 @@ public class GameClient {
 					gameThread = new GameThread(client);
 					gameThread.start();
 					
-					while(true)
-					{
-						msg = reader.readLine();
-
-						if(msg == "The opponent has left the game.") { //상대방이 게임 강제종료
-							if(gameThread.isTerminated()) { //게임 종료
-								gameThread.interrupt();
-								writer.println("some client left the game");
-								return;
-							}
-							else { //새로운 게임 대기
-								gameThread.interrupt();
-								GameStart();
-							}
-						}
-					}
+//					while(true)
+//					{
+//						msg = reader.readLine();
+//
+//						if(msg == "The opponent has left the game.") { //상대방이 게임 강제종료
+//							if(gameThread.isTerminated()) { //게임 종료
+//								gameThread.interrupt();
+//								writer.println("some client left the game");
+//								return;
+//							}
+//							else { //새로운 게임 대기
+//								gameThread.interrupt();
+//								GameStart();
+//							}
+//						}
+//					}
 					
 				}
 			}
@@ -71,27 +71,27 @@ public class GameClient {
 		
 	}
 	
-	private void checkStatus() {
-		
-		String msg;
-		
-		try {
-			while(true)
-			{
-				msg = reader.readLine();
-
-				if(msg == "The opponent has left the game.") { //상대방이 게임 강제종료
-					if(gameThread.isTerminated()) { //게임 종료
-						gameThread.interrupt();
-						writer.println("some client left the game");
-						return;
-					}
-					else { //새로운 게임 대기
-						gameThread.interrupt();
-						GameStart();
-					}
-				}
-			}
-		} catch(IOException e) { e.printStackTrace(); }
-	}
+//	private void checkStatus() {
+//		
+//		String msg;
+//		
+//		try {
+//			while(true)
+//			{
+//				msg = reader.readLine();
+//
+//				if(msg == "The opponent has left the game.") { //상대방이 게임 강제종료
+//					if(gameThread.isTerminated()) { //게임 종료
+//						gameThread.interrupt();
+//						writer.println("some client left the game");
+//						return;
+//					}
+//					else { //새로운 게임 대기
+//						gameThread.interrupt();
+//						GameStart();
+//					}
+//				}
+//			}
+//		} catch(IOException e) { e.printStackTrace(); }
+//	}
 }

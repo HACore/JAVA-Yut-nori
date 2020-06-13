@@ -6,13 +6,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import javax.swing.JOptionPane;
-
-//import Yutnori.Game;
+import Yutnori.Game;
 
 public class GameThread extends Thread {
 	
 	private Socket client;
 	private PrintWriter writer;
+	private Game game;
 	
 	public GameThread(Socket client) {
 		this.client = client;
@@ -22,11 +22,10 @@ public class GameThread extends Thread {
 	public void run() {
 		
 		try {
-			
-			
+			game = new Game();
 			writer = new PrintWriter(client.getOutputStream(), true);
 			
-			
+			game.run();
 			
 			
 			

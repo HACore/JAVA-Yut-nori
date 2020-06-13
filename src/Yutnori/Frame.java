@@ -8,12 +8,12 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class Frame extends JFrame{
-	public static void main(String[] args) {
-		
-		Frame frame = new Frame();
-		// 종료 event. 한 쪽이 지거나 다른 쪽이 이기면 이렇게 하면 될 듯
-		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	}
+//	public static void main(String[] args) {
+//		
+//		Frame frame = new Frame();
+//		// 종료 event. 한 쪽이 지거나 다른 쪽이 이기면 이렇게 하면 될 듯
+//		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+//	}
 	
 	int p = 0;
 	int o = 0;
@@ -76,7 +76,7 @@ public class Frame extends JFrame{
 		
 		// throw 버튼
 		JButton tr = new JButton("THROW YUT");
-		Right trbutton = new Right();
+		Throw trbutton = new Throw();
 		tr.addActionListener(trbutton);
 		tr.setPreferredSize(new Dimension(665,70));
 		tr.setBackground(sky);
