@@ -30,7 +30,7 @@ public class GameServer {
 					
 					clients.add(client);
 					
-					ClientManagerThread c_thread = new ClientManagerThread(client);
+					ClientManagerThread c_thread = new ClientManagerThread(client, clients.indexOf(client));
 					c_thread.start();
 				}
 				catch(IOException e) { e.printStackTrace(); }

@@ -7,11 +7,12 @@ import javax.swing.*;
 
 public class Yut {
 	
+	private int move;
 	//ButtonClickListener로 받아온 event 처리
 	public int Throw() {
 		
 		Random random = new Random();
-		int move = random.nextInt(6);
+		move = random.nextInt(6);
 		
 		if(move == 4 || move == 5) {
 			
@@ -25,6 +26,10 @@ public class Yut {
 	
 	private void motion(int move) {
 		
+	}
+	
+	public int getMove() {
+		return move;
 	}
 }
 

@@ -9,10 +9,12 @@ import java.net.Socket;
 public class ClientManagerThread extends Thread {
 	
 	private Socket client;
+	private int id;
 	private BufferedReader reader;
 	private PrintWriter writer;
 	
-	public ClientManagerThread(Socket client) {
+	public ClientManagerThread(Socket client, int id) {
+		this.id = id;
 		this.client = client;
 	}
 	
