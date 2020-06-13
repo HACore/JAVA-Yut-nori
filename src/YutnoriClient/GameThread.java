@@ -22,6 +22,8 @@ public class GameThread extends Thread {
 	public void run() {
 		
 		try {
+			
+			
 			writer = new PrintWriter(client.getOutputStream(), true);
 			
 			
@@ -41,7 +43,8 @@ public class GameThread extends Thread {
 	}
 	
 	public boolean isTerminated() {
-		int answer = JOptionPane.showConfirmDialog(null, "상대방이 게임을 나갔습니다.\n게임을 나가시겠습니까?", "게임 종료", JOptionPane.INFORMATION_MESSAGE, JOptionPane.YES_NO_OPTION);
+		int answer = JOptionPane.showConfirmDialog(null, "The opponent has left the game.\nWant to leave the game?", 
+												   "Game closed", JOptionPane.INFORMATION_MESSAGE, JOptionPane.YES_NO_OPTION);
 		
 		if(answer == JOptionPane.YES_OPTION)
 			return true;

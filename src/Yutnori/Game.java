@@ -1,22 +1,55 @@
 package Yutnori;
 
-import javax.swing.JOptionPane;
-
 public class Game {
+
+	Board board = new Board();
 	
-	Board board;
-	
-	public void start() {
+	/*
+	// current location + yut
+	int loc(int cur, int yut, int line;) {
+		if(cur==5) {
+			if(cho()=='r') {
+				cur += yut;
+			} else if(yut==-1) {
+				cur--;
+			} else {
+				cur = add(cur+15,yut-1);
+			}
+		} else if(cur==10) {
+			if(cho()=='r'){
+				cur += yut;
+			} else if(yut==-1){
+				cur--;
+			} else {
+				cur = add(cur+15,yut-1);
+			}
+		} else if(cur==22) {
+			if(cho()=='r'){
+				cur = add(cur+1,yut-1);
+			} else {
+				cur = add(cur+5,yut-1);
+			}
+		} else if(cur>=20 || cur<=28){
+			cur = add(cur,yut);
+		} else {
+			cur += yut;
+		}
 		
-		board = new Board();
+		return cur;
 	}
 	
-	public boolean isTerminated() {
-		int answer = JOptionPane.showConfirmDialog(null, "상대방이 게임을 나갔습니다.\n게임을 나가시겠습니까?", "게임 종료", JOptionPane.INFORMATION_MESSAGE, JOptionPane.YES_NO_OPTION);
+	
+	
+	// left or right
+	char cho() {
 		
-		if(answer == JOptionPane.YES_OPTION)
-			return true;
-		else
-			return false;
+		int i = 0;
+		//actionperformed
+		if(i==1) {
+			return 'r';
+		} else {
+			return 'l';
+		}
 	}
+	*/
 }

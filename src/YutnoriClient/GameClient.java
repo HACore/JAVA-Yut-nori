@@ -18,7 +18,11 @@ public class GameClient {
 		try { //서버와 연결
 			client = new Socket("localhost", 1398);
 		} 
-		catch(IOException e) { e.printStackTrace(); }
+		catch(IOException e) {
+			System.out.println("Server is not executing");
+			e.printStackTrace();
+			System.exit(1);
+		}
 		System.out.println("conneted to server!");
 		
 		try { //서버와의 통신수단
@@ -60,9 +64,34 @@ public class GameClient {
 							}
 						}
 					}
+					
 				}
 			}
 		} catch(IOException e) { e.printStackTrace(); }
 		
+	}
+	
+	private void checkStatus() {
+		
+		String msg;
+		
+		try {
+			while(true)
+			{
+				msg = reader.readLine();
+
+				if(msg == "The opponent has left the game.") { //상대방이 게임 강제종료
+					if(gameThread.isTerminated()) { //게임 종료
+						gameThread.interrupt();
+						writer.println("some client left the game");
+						return;
+					}
+					else { //새로운 게임 대기
+						gameThread.interrupt();
+						GameStart();
+					}
+				}
+			}
+		} catch(IOException e) { e.printStackTrace(); }
 	}
 }
