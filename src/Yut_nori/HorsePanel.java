@@ -1,4 +1,4 @@
-package javateam;
+package Yutnori;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -6,8 +6,8 @@ import javax.swing.*;
 
 public class HorsePanel extends JPanel {
 
-	ImageIcon imageM = new ImageIcon("../image/M.PNG");//ÀÌ°Ç Á¤»óÀûÀÎ ¸í·ûÀÌ
-	ImageIcon imageY = new ImageIcon("../image/Y.PNG");//Á¤»ó À²ÀüÀÌ
+	ImageIcon imageM = new ImageIcon("../image/M.PNG");//ì´ê±´ ì •ìƒì ì¸ ëª…ë¥œì´
+	ImageIcon imageY = new ImageIcon("../image/Y.PNG");//ì •ìƒ ìœ¨ì „ì´
 	
 	JButton m1 = new JButton(imageM); JButton m2 = new JButton(imageM);
 	JButton m3 = new JButton(imageM); JButton m4 = new JButton(imageM);
@@ -18,7 +18,7 @@ public class HorsePanel extends JPanel {
 	Horse tempH;
 	HorsePanel(){
 		setPreferredSize(new Dimension(1400,700));
-		setOpaque(false);//JPanelÀÌ ¿ø·¡ ±âº»°ªÀÌ Åõ¸íÀÌ¶ó´Â ¼Ò¸®¸¦ µéÀº °Í °°Àºµ¥ »©µµ µÇ¸é »©°í.
+		setOpaque(false);//JPanelì´ ì›ëž˜ ê¸°ë³¸ê°’ì´ íˆ¬ëª…ì´ë¼ëŠ” ì†Œë¦¬ë¥¼ ë“¤ì€ ê²ƒ ê°™ì€ë° ë¹¼ë„ ë˜ë©´ ë¹¼ê³ .
 		transparent();
 		setting();
 		
@@ -37,12 +37,12 @@ public class HorsePanel extends JPanel {
 		setVisible(true);
 	}
 	void getHorse(Horse h) {
-		//ÇÊ¿äÇÑ Horse °¡Á®¿Í¼­ »ç¿ëÇÏ·Á°í. Game¿¡¼­ ¸Å¹ø ½ÇÇà½ÃÄÑÁà¾ß ÇÒµí..? À· ´øÁö°í¶óµçÁö ¿©Æ° ¸»ÀÌ ¿òÁ÷ÀÌ±â Àü¿¡
+		//í•„ìš”í•œ Horse ê°€ì ¸ì™€ì„œ ì‚¬ìš©í•˜ë ¤ê³ . Gameì—ì„œ ë§¤ë²ˆ ì‹¤í–‰ì‹œì¼œì¤˜ì•¼ í• ë“¯..? ìœ· ë˜ì§€ê³ ë¼ë“ ì§€ ì—¬íŠ¼ ë§ì´ ì›€ì§ì´ê¸° ì „ì—
 		tempH = h;
 	}
 	
 
-	public void setting () {//¸» ÃÊ±âÀ§Ä¡ ¼³Á¤.
+	public void setting () {//ë§ ì´ˆê¸°ìœ„ì¹˜ ì„¤ì •. ì¼ë‹¨ ìž„ì˜ë¡œ ì •í•´ë‘”ê±°ì•¼!
 		m1.setSize(30,30); m1.setLocation(800, 35);
 		m2.setSize(30,30); m2.setLocation(850, 35);
 		m3.setSize(30,30); m3.setLocation(900, 35);
@@ -53,11 +53,8 @@ public class HorsePanel extends JPanel {
 		y4.setSize(30,30); y4.setLocation(1150, 70);
 		
 	}
-	void add() {
-		add(m1); add(m2); add(m3); add(m4);
-		add(y1); add(y2); add(y3); add(y4);
-	}
-	public void transparent() {//Åõ¸íÇÏ°Ô ÇØÁÖ´Â °Å
+
+	public void transparent() {//íˆ¬ëª…í•˜ê²Œ í•´ì£¼ëŠ” ê±°
 		m1.setOpaque(false); m2.setOpaque(false);
 		m3.setOpaque(false); m4.setOpaque(false);
 		y1.setOpaque(false); y2.setOpaque(false);
@@ -69,16 +66,16 @@ public class HorsePanel extends JPanel {
 		y3.setBorderPainted(false); y4.setBorderPainted(false);
 	}
 	
-	//´Ù½Ã Ã³À½À¸·Î µ¹¾Æ°¡¾ß ÇÏ¸é(Àâ¾Æ¸ÔÇû°Å³ª, Á¡¼ö ³Â°Å³ª) ÀÓÀÇ·Î ÀÌº¥Æ® °Å±â¼­ ¹ß»ý½ÃÄÑ¾ß ÇÒ µí...?
+	//ë‹¤ì‹œ ì²˜ìŒìœ¼ë¡œ ëŒì•„ê°€ì•¼ í•˜ë©´(ìž¡ì•„ë¨¹í˜”ê±°ë‚˜, ì ìˆ˜ ëƒˆê±°ë‚˜) ìž„ì˜ë¡œ ì´ë²¤íŠ¸ ê±°ê¸°ì„œ ë°œìƒì‹œì¼œì•¼ í•  ë“¯...?
 	class ButtonClickListener implements ActionListener {
 
 		public void actionPerformed (ActionEvent e) {
 			int p = tempH.getposition();
 			if(e.getSource() == m1) {
-				if(p == -1 | p >= 30) {//ÀÌÆÄÆ®´Â ´Ù ¿ø·¡ À§Ä¡·Î µ¹¾Æ°¡´Â °Å
+				if(p == -1 | p >= 30) {//ì´íŒŒíŠ¸ëŠ” ë‹¤ ì›ëž˜ ìœ„ì¹˜ë¡œ ëŒì•„ê°€ëŠ” ê±°
 					m1.setLocation(800, 35);
 				}
-				else {//ÀÌ°Ç À§ÀÇ Æ¯¼ö »óÈ²ÀÌ ¾Æ´Ò ¶§ Àý´ëÀ§Ä¡ ¹Ù²ã¼­ ¼³Á¤ÇØÁÖ´Â °Å
+				else {//ì´ê±´ ìœ„ì˜ íŠ¹ìˆ˜ ìƒí™©ì´ ì•„ë‹ ë•Œ ì ˆëŒ€ìœ„ì¹˜ ë°”ê¿”ì„œ ì„¤ì •í•´ì£¼ëŠ” ê±°
 					m1x = tempH.posx;
 					m1y = tempH.posy;
 					m1.setLocation(m1x, m1y);
