@@ -1,3 +1,5 @@
+package Yutnori;
+
 import java.io.*;
 
 
