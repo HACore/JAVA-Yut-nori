@@ -42,5 +42,5 @@ class Position {
 	// player num in that position
 	Horse[] player = new Horse[4];
 //	int player = 0;
-	int opponent = 0;
+	int cnt = 0;
 }
