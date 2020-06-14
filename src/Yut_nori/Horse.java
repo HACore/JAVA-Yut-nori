@@ -7,35 +7,42 @@ public class Horse {
 	int go;
 	char s;
 	Board b;
-	public int id;//이건 혹시 명륜인지 율전인지 파악 필요하면 쓰려고 넣어뒀는데 솔직히 쓸지안쓸지는 모르겠어
+	public int id;
+	public int num;
+	HorsePanel p;
 	
 	void getBoardPos(Board board) {
 		b = board;
+		posx = b.pos[position].x;
+		posy = b.pos[position].y;
 	}
 	
 	void getYutMove(Yut yut) {
-		Yut y = yut;
 		go = yut.getMove();
 	}
 	
-	void getDirection (Frame f) {//어떤 방향?으로 갈지 받아오는 거
+	void getDirection (Frame f) {
 		s = f.ReturnC();
 	}
+	void getHorsePanel(HorsePanel panel) {
+		p = panel;
+	}
 
-	int getposition() {//이건 혹시 말 위치 다른 곳에서 쓸 일 있으면 값 리턴해줄 함수
+	int getposition() {
 		return this.position;
 	}
-	
-	void gotoStart() {//이건 걍 잡아먹히는 그런 경우?에... Game에서 실행시켜주면 안될까...?
+	void gotoStart() {//이건 걍 잡아먹히면... Game에서 실행시켜주면 안될까...?
 		this.position = -1;
 	}
-	
 	void changep () {
 
 		char left = 'l';
 		char right = 'r';
 		
 		switch(position) {
+		//position에 업데이트 해주는데 상대편 말 있는지 먼저 체크, 있으면 걔 위치 초기화하는 함수 부르고
+		//아니면 그냥 그 말 개수 불러와서 Horse[num]에 Horse 업데이트 해주고 개수도++
+		//상대 말 있으면 
 		case 5:
 			if(s == left) {
 				this.position = 20+(go-1);
@@ -43,6 +50,7 @@ public class Horse {
 			else {
 				this.position = 6+(go-1);
 			}
+
 			break;
 		case 10:
 			if(s == right) {//밑으로 내려가는 경우
@@ -78,8 +86,13 @@ public class Horse {
 				this.position += go;
 			}
 		}
-		posx = b.pos[position].x;
-		posy = b.pos[position].y;
+		
+		if(this.num<4&&b.pos[position].opponent_num>0 | this.num>=4&&b.pos[position].player_num>0) {
+			//보드의 잡아먹는 함수 call 되려나?
+		}
+		
+		if(position >= 30) {
+			//여기서 player의 score을 ++해야하는데...
+		}
 	}
-
 }
