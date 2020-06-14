@@ -119,7 +119,7 @@ public class Frame extends JFrame{
 	int Throw() {
 		
 		Random random = new Random();
-		return random.nextInt(6);
+		return (random.nextInt(5)+1);
 	}
 	class Throw implements ActionListener {
 		
