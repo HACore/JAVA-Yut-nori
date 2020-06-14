@@ -62,6 +62,7 @@ public class GameClient {
 					get = new ObjectInputStream(client.getInputStream());
 					game = (Game)get.readObject();
 //					game = (Game)reader.readObject();
+					get.close();
 					
 					gameThread = new GameThread(game, client, Integer.valueOf(receive[1]));
 					gameThread.start();
