@@ -26,7 +26,7 @@ public class ClientManagerThread extends Thread {
 			writer = new PrintWriter(client.getOutputStream(), true);
 			
 			if(GameServer.clients.size() < 2) { //상대방이 들어올떄까지 대기
-				writer.println("Wait for an opponent to enter...");
+//				writer.println("Wait for an opponent to enter...");
 				while(GameServer.clients.size() < 2);
 			}
 			writer.println("Game start!");
