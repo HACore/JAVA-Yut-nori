@@ -40,9 +40,36 @@ public class HorsePanel extends JPanel {
 		//필요한 Horse 가져와서 사용하려고. Game에서 매번 실행시켜줘야 할듯..? 윷 던지고라든지 여튼 말이 움직이기 전에
 		tempH = h;
 	}
-	
+	void setToStart(Horse h) {//잡아먹는 함수에서?여튼 어디서든 HorsePanel에 이 함수를 실행시켜주면 버튼 처음 위치로 업데이트
+		switch(h.num) {
+		case 0:
+			m1.setLocation(800, 35);
+			break;
+		case 1:
+			m2.setLocation(850, 35);
+			break;
+		case 2:
+			m3.setLocation(900, 35);
+			break;
+		case 3:
+			m4.setLocation(950, 35);
+			break;
+		case 4:
+			y1.setLocation(1000, 70);
+			break;
+		case 5:
+			y2.setLocation(1050, 70);
+			break;
+		case 6:
+			y3.setLocation(1100, 70);
+			break;
+		case 7:
+			y4.setLocation(1150, 70);
+			break;
+		}
+	}
 
-	public void setting () {//말 초기위치 설정. 일단 임의로 정해둔거야!
+	public void setting () {//말 초기위치 설정.
 		m1.setSize(30,30); m1.setLocation(800, 35);
 		m2.setSize(30,30); m2.setLocation(850, 35);
 		m3.setSize(30,30); m3.setLocation(900, 35);
