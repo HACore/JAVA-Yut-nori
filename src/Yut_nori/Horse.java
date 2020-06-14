@@ -6,12 +6,11 @@ public class Horse {
 	int posx, posy;
 	int go;
 	char s;
+	Board b;
 	public int id;//이건 혹시 명륜인지 율전인지 파악 필요하면 쓰려고 넣어뒀는데 솔직히 쓸지안쓸지는 모르겠어
 	
 	void getBoardPos(Board board) {
-		Board b = board;
-		posx = b.pos[position].x;
-		posy = b.pos[position].y;
+		b = board;
 	}
 	
 	void getYutMove(Yut yut) {
@@ -79,6 +78,8 @@ public class Horse {
 				this.position += go;
 			}
 		}
+		posx = b.pos[position].x;
+		posy = b.pos[position].y;
 	}
 
 }
