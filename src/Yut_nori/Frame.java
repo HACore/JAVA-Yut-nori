@@ -168,6 +168,7 @@ public class Frame extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			yut.Throw();
+			TEnable(false);
 		}
 	}
 }
