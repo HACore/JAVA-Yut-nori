@@ -30,8 +30,8 @@ public class GameThread extends Thread {
 			writer = new PrintWriter(client.getOutputStream(), true);
 			String msg;
 			
-			game.start(id);
-			
+			game.start(1);
+			writer.println("[Your turn]");
 			while(true)
 			{
 				msg = reader.readLine();
@@ -47,12 +47,12 @@ public class GameThread extends Thread {
 					}
 				}
 				else if(msg.startsWith("[You lose]")) {
-					writer.println("[Lose]");
+//					writer.println("[Lose]");
 					System.out.print("lose the game...");
 					break;
 				}
-				
-				writer.println("[Stop my turn]");
+				writer.println("[Your turn]");
+//				writer.println("[Stop my turn]");
 			}
 		}
 		catch(IOException e) { e.printStackTrace(); }

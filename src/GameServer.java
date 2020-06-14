@@ -2,8 +2,10 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class GameServer {
@@ -19,10 +21,17 @@ public class GameServer {
 		game = new Game();
 		
 		try {
-			server = new ServerSocket(1398);
+			server = new ServerSocket(6555);
 		} 
 		catch(IOException e) { e.printStackTrace(); }
 		System.out.println("server is ready");
+		
+		try {
+			InetAddress ip = InetAddress.getLocalHost();
+			System.out.println(ip.getHostAddress());
+		} catch (UnknownHostException e1) {
+			e1.printStackTrace();
+		}
 		
 		while(true)
 		{
@@ -41,10 +50,10 @@ public class GameServer {
 					
 					ClientManagerThread c_thread = new ClientManagerThread(game, client, clients.indexOf(client));
 					c_thread.start();
-					c_thread.join();
+//					c_thread.join();
 				}
 				catch(IOException e) { e.printStackTrace(); } 
-				catch (InterruptedException e) { e.printStackTrace(); }
+//				catch (InterruptedException e) { e.printStackTrace(); }
 			}
 		}
 		
