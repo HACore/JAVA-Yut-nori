@@ -30,7 +30,7 @@ public class GameThread extends Thread {
 			writer = new PrintWriter(client.getOutputStream(), true);
 			String msg;
 			
-			game.start();
+			game.start(id);
 			
 			while(true)
 			{

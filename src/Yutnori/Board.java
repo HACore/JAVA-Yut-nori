@@ -4,6 +4,12 @@ public class Board {
 	
 	Position[] pos = new Position[30];
 	
+	{
+		for(int i = 0; i < 30; i++) {
+			pos[i] = new Position();
+		}
+	}
+	
 	public Board() {
 		// init Board position
 		for(int i=0; i<6; i++) {
@@ -26,16 +32,24 @@ public class Board {
 		}
 	}
 	
-	public void setHorse(int idx, Horse horse) {
-		pos[idx].player = horse;
-	}
+//	public void setHorse(int idx, Horse horse) {
+//		pos[idx].player = horse;
+//	}
 }
 
 class Position {
 	
 	int x,y;
 	// player num in that position
-	Horse player;
-//	int player = 0;
-	int opponent = 0;
+	Horse[] player1 = new Horse[4];
+	Horse[] player2 = new Horse[4];
+	int player1_num = 0;
+	int player2_num = 0;
+	
+	{
+		for(int i = 0; i < 4; i++) {
+			player1[i] = new Horse();
+			player2[i] = new Horse();
+		}
+	}
 }

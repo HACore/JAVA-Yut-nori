@@ -188,6 +188,7 @@ public class HorsePanel extends JPanel {
 				}
 				
 			}
+			game.horse_status = true;
 		}
 	}
 

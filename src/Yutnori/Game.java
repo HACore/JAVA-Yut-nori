@@ -10,36 +10,36 @@ public class Game {
 	HorsePanel horsePanel;
 	Horse[][] horse;
 	Yut yut;
+	int id;
 	
 	boolean yut_status;
+	boolean horse_status;
 	int move;
 	
 	public Game() {
 		player = new Player[2];
+		for(int i = 0; i < 2; i++) {
+			player[i] = new Player(i);
+		}
 		board = new Board();
 		horse = new Horse[2][4];
+		for(int i = 0; i < 2; i++) {
+			for(int j = 0; j < 4; j++) {
+				horse[i][j] = new Horse();
+			}
+		}
 		yut = new Yut();
 		yut_status = false;
+		horse_status = false;
 	}
 	
-//	void a() {
-//		horse[2].getPos(board);
-//		board.setHorse(5, horse[2]);
-//	}
-	
-	public void start() {
+	public void start(int id) {
 		frame = new Frame(this);
 		horsePanel = new HorsePanel(this);
-		
-//		for(int i = 0; i < 2; i++) {
-//			for(int j = 0; j < 4; j++) {
-//				
-//			}
-//		}
-		
+		this.id = id;
 	}
 	
-	public  void run(int id) {
+	public void run(int id) {
 		
 		myturn();
 		frame.enableButton(true);
@@ -49,7 +49,12 @@ public class Game {
 				
 				horsePanel.enableButton(id, true);
 				
-				horse[id][0].changep(move);
+				while(true) {
+					if(horse_status) {
+						horse_status = false;
+						break;
+					}
+				}
 				
 				horsePanel.enableButton(id, false);
 				break;

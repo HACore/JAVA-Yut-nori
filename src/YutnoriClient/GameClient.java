@@ -1,6 +1,7 @@
 package YutnoriClient;
 
 import java.io.IOException;
+//import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.ObjectInputStream;
@@ -13,6 +14,7 @@ public class GameClient {
 	private Socket client;
 	private BufferedReader reader;
 	private ObjectInputStream get;
+//	private ObjectInputStream reader;
 	private Game game;
 	
 	public void connect() {
@@ -28,8 +30,11 @@ public class GameClient {
 		System.out.println("conneted to server!");
 		
 		try { //서버와의 통신수단
+//			InputStream in = client.getInputStream();
+//			reader = new BufferedReader(new InputStreamReader(in));
 			reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-			get = new ObjectInputStream(client.getInputStream());
+//			get = new ObjectInputStream(in);
+//			reader = new ObjectInputStream(client.getInputStream());
 		}
 		catch(IOException e) { e.printStackTrace(); }	
 	}
@@ -52,7 +57,11 @@ public class GameClient {
 					String[] receive = msg.split("~~~");
 					System.out.println(receive[0]);
 					
+					reader.close();
+					
+					get = new ObjectInputStream(client.getInputStream());
 					game = (Game)get.readObject();
+//					game = (Game)reader.readObject();
 					
 					gameThread = new GameThread(game, client, Integer.valueOf(receive[1]));
 					gameThread.start();

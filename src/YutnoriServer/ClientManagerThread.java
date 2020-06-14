@@ -29,14 +29,20 @@ public class ClientManagerThread extends Thread {
 		try {
 			reader = new BufferedReader(new InputStreamReader(client.getInputStream())); //연결된 클라이언트에게서 메세지 수신
 			writer = new PrintWriter(client.getOutputStream(), true); //연결된 클라이언트로 메세지 송신
-			send = new ObjectOutputStream(client.getOutputStream()); //연결된 클라이언트에게서 게임 객체 송신
+//			send = new ObjectOutputStream(client.getOutputStream()); //연결된 클라이언트에게서 게임 객체 송신
 			
 			if(GameServer.clients.size() < 2) { //상대방이 들어올떄까지 대기
 				while(GameServer.clients.size() < 2);
 			}
 			writer.println("Game start!~~~"+id);
+			writer.close();
+			
+			send = new ObjectOutputStream(client.getOutputStream());
 			send.writeObject(game);
 			send.flush();
+			send.close();
+//			writer.println(game);
+			writer = new PrintWriter(client.getOutputStream(), true);
 			
 			if(id == 1) {
 				writer.println("[Your turn]");
@@ -81,8 +87,8 @@ public class ClientManagerThread extends Thread {
 			}
 			GameServer.clients.remove(client);
 			reader.close();
-			writer.close();
-			send.close();
+//			writer.close();
+//			send.close();
 			client.close();
 			
 		} catch(IOException e) { e.printStackTrace(); }
