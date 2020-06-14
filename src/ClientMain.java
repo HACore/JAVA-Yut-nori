@@ -1,6 +1,6 @@
-package YutnoriClient;
+//package YutnoriClient;
 
-public class Main {
+public class ClientMain {
 
 	public static void main(String[] args) {
 		

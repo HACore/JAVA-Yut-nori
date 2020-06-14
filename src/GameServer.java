@@ -1,11 +1,10 @@
-package YutnoriServer;
+//package YutnoriServer;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import Yutnori.Game;
 
 public class GameServer {
 	
@@ -42,8 +41,10 @@ public class GameServer {
 					
 					ClientManagerThread c_thread = new ClientManagerThread(game, client, clients.indexOf(client));
 					c_thread.start();
+					c_thread.join();
 				}
-				catch(IOException e) { e.printStackTrace(); }
+				catch(IOException e) { e.printStackTrace(); } 
+				catch (InterruptedException e) { e.printStackTrace(); }
 			}
 		}
 		

@@ -1,4 +1,4 @@
-package YutnoriServer;
+//package YutnoriServer;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import Yutnori.Game;
+//import Yutnori.Game;
 
 public class ClientManagerThread extends Thread {
 	
@@ -35,14 +35,14 @@ public class ClientManagerThread extends Thread {
 				while(GameServer.clients.size() < 2);
 			}
 			writer.println("Game start!~~~"+id);
-			writer.close();
+//			writer.close();
 			
 			send = new ObjectOutputStream(client.getOutputStream());
 			send.writeObject(game);
 			send.flush();
 			send.close();
 //			writer.println(game);
-			writer = new PrintWriter(client.getOutputStream(), true);
+//			writer = new PrintWriter(client.getOutputStream(), true);
 			
 			if(id == 1) {
 				writer.println("[Your turn]");

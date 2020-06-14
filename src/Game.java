@@ -1,9 +1,12 @@
-package Yutnori;
+//package Yutnori;
 
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 
-public class Game {
+public class Game implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	Player[] player;
 	Frame frame;
 	Board board;
@@ -46,6 +49,8 @@ public class Game {
 		
 		while(true) {
 			if(yut_status) {
+				
+				frame.setYut(yut.getYutPanel(move));
 				
 				horsePanel.enableButton(id, true);
 				

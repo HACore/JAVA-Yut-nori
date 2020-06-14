@@ -1,4 +1,4 @@
-package YutnoriClient;
+//package YutnoriClient;
 
 import java.io.IOException;
 //import java.io.InputStream;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.ObjectInputStream;
 import java.net.Socket;
-import Yutnori.Game;
+//import Yutnori.Game;
 
 public class GameClient {
 	
@@ -46,7 +46,9 @@ public class GameClient {
 		try {
 			while(true)
 			{
+				System.out.println("1****************************");
 				msg = reader.readLine();
+				System.out.println("2****************************");
 
 				if(msg.startsWith("Wait")) { //상대방이 들어올떄까지 대기
 					System.out.println(msg);
@@ -57,11 +59,10 @@ public class GameClient {
 					String[] receive = msg.split("~~~");
 					System.out.println(receive[0]);
 					
-					reader.close();
+//					reader.close();
 					
 					get = new ObjectInputStream(client.getInputStream());
 					game = (Game)get.readObject();
-//					game = (Game)reader.readObject();
 					get.close();
 					
 					gameThread = new GameThread(game, client, Integer.valueOf(receive[1]));

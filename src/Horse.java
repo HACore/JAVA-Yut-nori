@@ -1,7 +1,11 @@
-package Yutnori;
+import java.io.Serializable;
 
-public class Horse {
+//package Yutnori;
 
+public class Horse implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
 	private int position = -1;
 	int posx, posy; //¸»ÀÇ ÁÂÇ¥
 	int go;

@@ -1,6 +1,12 @@
-package Yutnori;
+import java.io.Serializable;
 
-public class Board {
+//package Yutnori;
+
+//import java.io.Serializable;
+
+public class Board implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	Position[] pos = new Position[30];
 	
@@ -37,7 +43,9 @@ public class Board {
 //	}
 }
 
-class Position {
+class Position implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	int x,y;
 	// player num in that position

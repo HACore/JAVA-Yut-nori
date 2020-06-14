@@ -1,11 +1,15 @@
-package Yutnori;
+//package Yutnori;
 
 import java.util.Random;
 import java.awt.*;
+import java.io.Serializable;
+
 //import java.awt.event.*;
 import javax.swing.*;
 
-public class Yut {
+public class Yut implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private int move;
 	//ButtonClickListener로 받아온 event 처리
@@ -28,8 +32,16 @@ public class Yut {
 		
 	}
 	
-	public int getMove() {
-		return move;
+//	public int getMove() {
+//		return move;
+//	}
+	
+	public JPanel getYutPanel(int move) {
+		return new YutPanel(move) {
+			public void paintComponent(Graphics g) {
+				g.drawImage(image.getImage(),0,0,null);
+			}
+		};
 	}
 }
 
@@ -59,7 +71,10 @@ class YutPanel extends JPanel{
 		setBounds(0, 0, 1, 1);
 		
 		image = new ImageIcon("../image/" + move + ".PNG");
-		yutImage = new JLabel(image);
-		add(yutImage);
+//		yutImage = new JLabel(image);
+//		add(yutImage);
 	}
+//	public void paintComponent(Graphics g) {
+//		g.drawImage(image.getImage(),0,0,null);
+//	}
 }

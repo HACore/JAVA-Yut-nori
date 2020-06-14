@@ -1,4 +1,4 @@
-package Yutnori;
+//package Yutnori;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -24,6 +24,8 @@ public class Frame extends JFrame{
 	JButton rb = new JButton("RIGHT →");
 	JButton tr = new JButton("THROW YUT");
 	
+	JPanel rpanel;
+	
 	Frame(Game game) {
 		
 		this.game = game;
@@ -47,7 +49,7 @@ public class Frame extends JFrame{
 		lpanel.setPreferredSize(new Dimension(700,700));
 		
 		// 오른쪽 패널
-		JPanel rpanel = new JPanel();
+		rpanel = new JPanel();
 		JPanel button1 = new JPanel();
 		JPanel button2 = new JPanel();
 		button1.setBackground(Color.white);
@@ -122,7 +124,7 @@ public class Frame extends JFrame{
 		button2.add(tr);
 		
 		rpanel.add(horsepl);
-		rpanel.add(ypanel);
+//		rpanel.add(ypanel);
 		rpanel.add(button1);
 		rpanel.add(button2,BorderLayout.SOUTH);
 		
@@ -133,6 +135,11 @@ public class Frame extends JFrame{
 		getContentPane().setBackground(Color.white);
 		setSize(1400,700);
 		setVisible(true);
+	}
+	
+	void setYut(JPanel y) {
+		y.setPreferredSize(new Dimension(300,215));
+		rpanel.add(y);
 	}
 	
 	void enableButton(boolean b) {

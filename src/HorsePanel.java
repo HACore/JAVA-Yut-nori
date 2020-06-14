@@ -1,4 +1,4 @@
-package Yutnori;
+//package Yutnori;
 
 import java.awt.*;
 import java.awt.event.*;
