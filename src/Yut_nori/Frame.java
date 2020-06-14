@@ -1,3 +1,4 @@
+package Yutnori;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -7,16 +8,21 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class Frame extends JFrame{
-	public static void main(String[] args) {
-		
-		Frame frame = new Frame();
-		// 종료 event. 한 쪽이 지거나 다른 쪽이 이기면 이렇게 하면 될 듯
-		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	}
+//	public static void main(String[] args) {
+//		
+//		Frame frame = new Frame();
+//		// 종료 event. 한 쪽이 지거나 다른 쪽이 이기면 이렇게 하면 될 듯
+//		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+//	}
 	
 	int p = 0;
 	int o = 0;
 	char c = 'r';
+	Yut yut = new Yut();
+	
+	JButton lb = new JButton("← LEFT");
+	JButton rb = new JButton("RIGHT →");
+	JButton tr = new JButton("THROW YUT");
 	
 	Frame() {
 		
@@ -47,11 +53,21 @@ public class Frame extends JFrame{
 		button1.setPreferredSize(new Dimension(700,80));
 		button2.setPreferredSize(new Dimension(700,80));
 		
+		//윷 그림
+		File file2 = new File(".");
+		String path2 = file2.getAbsolutePath();
+		ImageIcon icon2 = new ImageIcon(path2+"\\image\\5.png");
+		JPanel ypanel = new JPanel(){		
+			public void paintComponent(Graphics g) {
+				g.drawImage(icon2.getImage(),0,0,null);
+			}
+		};
+		ypanel.setPreferredSize(new Dimension(300,215));
+		
 		//Color sky = new Color(208,223,239);
 		Color sky = new Color(153,217,234);
 		
 		// left 버튼
-		JButton lb = new JButton("← LEFT");
 		Left lbutton = new Left();
 		lb.addActionListener(lbutton);
 		lb.setPreferredSize(new Dimension(330,70));
@@ -62,7 +78,6 @@ public class Frame extends JFrame{
 		// lb.setEnabled(true);
 		
 		// right 버튼
-		JButton rb = new JButton("RIGHT →");
 		Right rbutton = new Right();
 		rb.addActionListener(rbutton);
 		rb.setPreferredSize(new Dimension(330,70));
@@ -70,25 +85,20 @@ public class Frame extends JFrame{
 		rb.setBorderPainted(false);
 		/* button enable & disable */
 		// rb.setEnabled(true);
-		// rb.setEnabled(true);
 		
 		// throw 버튼
-		JButton tr = new JButton("THROW YUT");
-		Right trbutton = new Right();
+		Throw trbutton = new Throw();
 		tr.addActionListener(trbutton);
 		tr.setPreferredSize(new Dimension(665,70));
 		tr.setBackground(sky);
 		tr.setBorderPainted(false);
-		//tr.setOpaque(true);
-	    //tr.setBackground(Color.white);
 		/* button enable & disable */
-		// tr.setEnabled(true);
 		// tr.setEnabled(true);
 		
 		JPanel horsepl = new JPanel();
 	    horsepl.setLayout(new GridLayout(2,1));
 	    horsepl.setPreferredSize(new Dimension(660, 240));
-	      
+	    
 	    JLabel labelP1 = new JLabel();
 	    labelP1.setText("Player1");
 	    labelP1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -111,8 +121,9 @@ public class Frame extends JFrame{
 		button2.add(tr);
 		
 		rpanel.add(horsepl);
+		rpanel.add(ypanel);
 		rpanel.add(button1);
-		rpanel.add(button2);
+		rpanel.add(button2,BorderLayout.SOUTH);
 		
 		add(lpanel);
 		add(rpanel);
@@ -123,7 +134,16 @@ public class Frame extends JFrame{
 		setVisible(true);
 	}
 	
-	char ReturnC {
+	void LREnable(boolean b) {
+		lb.setEnabled(b);
+		rb.setEnabled(b);
+	}
+	
+	void TEnable(boolean b) {
+		tr.setEnabled(b);
+	}
+	
+	char ReturnC() {
 		return c;
 	}
 	
@@ -132,6 +152,7 @@ public class Frame extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			c = 'l';
+			LREnable(false);
 		}
 	}
 	class Right implements ActionListener {
@@ -139,13 +160,14 @@ public class Frame extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			c = 'r';
+			LREnable(false);
 		}
 	}
 	class Throw implements ActionListener {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// 윷 던지기 코드 삽입 바람
+			yut.Throw();
 		}
 	}
 }
