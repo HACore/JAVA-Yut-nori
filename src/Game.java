@@ -14,7 +14,6 @@ public class Game implements Serializable {
 	Yut yut;
 	int id;
 	
-	boolean yut_status;
 	boolean horse_status;
 	int move;
 	
@@ -30,7 +29,6 @@ public class Game implements Serializable {
 			horse[i].id = i;
 		}
 		yut = new Yut();
-		yut_status = false;
 
 	}
 	
@@ -43,19 +41,17 @@ public class Game implements Serializable {
 	public void run(int id) {
 		
 		myturn();
-		frame.enableButton(true);
 		
-		while(true) {
-			if(yut_status) {
-				
-				frame.setYut(yut.getYutPanel(move));
+		int y;
+		frame.enableButton(true);
+		y = frame.Throw();
+		
+		player[id].horse.changep(board, y);
+		
+		frame.setYut(yut.getYutPanel(y));
 
-				break;
-			}
-		}
 		changeHorsePos(horse[id]);
 		horsePanel.change(horse[id]);
-		
 
 		frame.enableButton(false);
 	}
@@ -70,7 +66,6 @@ public class Game implements Serializable {
 	
 	public void throwYut() {
 		move = yut.Throw();
-		yut_status = true;
 	}
 	
 	public void changeHorsePos(Horse horse) {
