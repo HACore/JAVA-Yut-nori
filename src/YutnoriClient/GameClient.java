@@ -3,7 +3,6 @@ package YutnoriClient;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
-import java.io.PrintWriter;
 import java.net.Socket;
 
 public class GameClient {
@@ -11,7 +10,6 @@ public class GameClient {
 	private GameThread gameThread;
 	private Socket client;
 	private BufferedReader reader;
-	private PrintWriter writer;
 	
 	public void connect() {
 		
@@ -27,7 +25,6 @@ public class GameClient {
 		
 		try { //서버와의 통신수단
 			reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-			writer = new PrintWriter(client.getOutputStream(), true);
 		}
 		catch(IOException e) { e.printStackTrace(); }	
 	}
@@ -39,38 +36,44 @@ public class GameClient {
 		try {
 			while(true)
 			{
-//				System.out.println("1**********");
 				msg = reader.readLine();
-//				System.out.println("2**********");
-				
+
 				if(msg.startsWith("Wait")) { //상대방이 들어올떄까지 대기
 					System.out.println(msg);
 					continue;
 				}
-				else {
-					gameThread = new GameThread(client);
+				else if(msg.startsWith("Game")) {
+					
+					String[] receive = msg.split("~~~");
+					System.out.println(receive[0]);
+					
+					gameThread = new GameThread(client, Integer.valueOf(receive[1]));
 					gameThread.start();
+					gameThread.join();
 					
-//					while(true)
-//					{
-//						msg = reader.readLine();
-//
-//						if(msg == "The opponent has left the game.") { //상대방이 게임 강제종료
-//							if(gameThread.isTerminated()) { //게임 종료
-//								gameThread.interrupt();
-//								writer.println("some client left the game");
-//								return;
-//							}
-//							else { //새로운 게임 대기
-//								gameThread.interrupt();
-//								GameStart();
-//							}
-//						}
-//					}
-					
+					break;
 				}
 			}
-		} catch(IOException e) { e.printStackTrace(); }
+			
+//			while(true)
+//			{
+//				msg = reader.readLine();
+//
+//				if(msg == "The opponent has left the game.") { //상대방이 게임 강제종료
+//					if(gameThread.isTerminated()) { //게임 종료
+//						gameThread.interrupt();
+//						writer.println("some client left the game");
+//						return;
+//					}
+//					else { //새로운 게임 대기
+//						gameThread.interrupt();
+//						GameStart();
+//					}
+//				}
+//			}
+		}
+		catch(IOException e) { e.printStackTrace(); }
+		catch (InterruptedException e) { e.printStackTrace(); }
 		
 	}
 	

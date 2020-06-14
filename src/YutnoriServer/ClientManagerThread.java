@@ -14,8 +14,8 @@ public class ClientManagerThread extends Thread {
 	private PrintWriter writer;
 	
 	public ClientManagerThread(Socket client, int id) {
-		this.id = id;
 		this.client = client;
+		this.id = id;
 	}
 	
 	@Override
@@ -26,10 +26,9 @@ public class ClientManagerThread extends Thread {
 			writer = new PrintWriter(client.getOutputStream(), true);
 			
 			if(GameServer.clients.size() < 2) { //상대방이 들어올떄까지 대기
-//				writer.println("Wait for an opponent to enter...");
 				while(GameServer.clients.size() < 2);
 			}
-			writer.println("Game start!");
+			writer.println("Game start!~~~"+id);
 			
 			String msg;
 			
@@ -39,15 +38,11 @@ public class ClientManagerThread extends Thread {
 				
 				
 				
-//				if(GameServer.clients.size() < 2) {
-//					System.out.println("some client left the game");
-//					writer.println("The opponent has left the game.");
-//					
-//					
-//					
-//				}
 				
-				if(msg == "some client left the game") {
+				
+				
+				
+				if(msg.startsWith("some")) {
 					break;
 				}
 				if(true/*이 클라이언트가 강제종료*/) {

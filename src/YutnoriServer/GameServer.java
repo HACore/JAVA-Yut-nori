@@ -33,9 +33,8 @@ public class GameServer {
 					clients.add(client);
 					
 					writer = new PrintWriter(client.getOutputStream(), true);
-					if(GameServer.clients.size() < 2) { //상대방이 들어올떄까지 대기
+					if(GameServer.clients.size() < 2) {
 						writer.println("Wait for an opponent to enter...");
-//						while(GameServer.clients.size() < 2);
 					}
 					
 					ClientManagerThread c_thread = new ClientManagerThread(client, clients.indexOf(client));
