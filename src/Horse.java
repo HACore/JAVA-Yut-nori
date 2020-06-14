@@ -4,7 +4,7 @@ public class Horse implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private int position = -1;
+	private int position = 0;
 	int posx, posy;
 	int go;
 	Board b;
