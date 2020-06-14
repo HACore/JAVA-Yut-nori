@@ -41,6 +41,7 @@ public class HorsePanel extends JPanel {
 		tempH = h;
 	}
 	void setToStart(Horse h) {//잡아먹는 함수에서?여튼 어디서든 HorsePanel에 이 함수를 실행시켜주면 버튼 처음 위치로 업데이트
+		//받아오는 이 Horse는 잡아먹히는 말!
 		switch(h.num) {
 		case 0:
 			m1.setLocation(800, 35);
