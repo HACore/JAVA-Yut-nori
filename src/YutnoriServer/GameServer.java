@@ -5,16 +5,19 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import Yutnori.Game;
 
 public class GameServer {
 	
 	static ArrayList<Socket> clients;
 	private ServerSocket server;
 	private PrintWriter writer;
+	private Game game;
 	
 	public void execute() {
 		
 		clients = new ArrayList<Socket>();
+		game = new Game();
 		
 		try {
 			server = new ServerSocket(1398);
@@ -37,7 +40,7 @@ public class GameServer {
 						writer.println("Wait for an opponent to enter...");
 					}
 					
-					ClientManagerThread c_thread = new ClientManagerThread(client, clients.indexOf(client));
+					ClientManagerThread c_thread = new ClientManagerThread(game, client, clients.indexOf(client));
 					c_thread.start();
 				}
 				catch(IOException e) { e.printStackTrace(); }

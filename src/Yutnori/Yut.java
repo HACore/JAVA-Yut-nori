@@ -9,7 +9,7 @@ public class Yut {
 	
 	private int move;
 	//ButtonClickListener로 받아온 event 처리
-	public int Throw() {
+	public int throwYut() {
 		
 		Random random = new Random();
 		move = random.nextInt(6);

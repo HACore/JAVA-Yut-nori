@@ -18,9 +18,15 @@ public class Frame extends JFrame{
 	int p = 0;
 	int o = 0;
 	char c = 'r';
-	Yut yut = new Yut();
+	Game game;
 	
-	Frame() {
+	JButton lb = new JButton("← LEFT");
+	JButton rb = new JButton("RIGHT →");
+	JButton tr = new JButton("THROW YUT");
+	
+	Frame(Game game) {
+		
+		this.game = game;
 		
 		setTitle("Yut-nori");
 		
@@ -49,48 +55,51 @@ public class Frame extends JFrame{
 		button1.setPreferredSize(new Dimension(700,80));
 		button2.setPreferredSize(new Dimension(700,80));
 		
+		//윷 그림
+		File file2 = new File(".");
+		String path2 = file2.getAbsolutePath();
+		ImageIcon icon2 = new ImageIcon(path2+"\\image\\5.png");
+		JPanel ypanel = new JPanel(){		
+			public void paintComponent(Graphics g) {
+				g.drawImage(icon2.getImage(),0,0,null);
+			}
+		};
+		ypanel.setPreferredSize(new Dimension(300,215));
+		
 		//Color sky = new Color(208,223,239);
 		Color sky = new Color(153,217,234);
 		
 		// left 버튼
-		JButton lb = new JButton("← LEFT");
 		Left lbutton = new Left();
 		lb.addActionListener(lbutton);
 		lb.setPreferredSize(new Dimension(330,70));
 		lb.setBackground(sky);
 		lb.setBorderPainted(false);
 		/* button enable & disable */
-		// lb.setEnabled(true);
-		// lb.setEnabled(true);
+		lb.setEnabled(false);
 		
 		// right 버튼
-		JButton rb = new JButton("RIGHT →");
 		Right rbutton = new Right();
 		rb.addActionListener(rbutton);
 		rb.setPreferredSize(new Dimension(330,70));
 		rb.setBackground(sky);
 		rb.setBorderPainted(false);
 		/* button enable & disable */
-		// rb.setEnabled(true);
-		// rb.setEnabled(true);
+		rb.setEnabled(false);
 		
 		// throw 버튼
-		JButton tr = new JButton("THROW YUT");
 		Throw trbutton = new Throw();
 		tr.addActionListener(trbutton);
 		tr.setPreferredSize(new Dimension(665,70));
 		tr.setBackground(sky);
 		tr.setBorderPainted(false);
-		//tr.setOpaque(true);
-	    //tr.setBackground(Color.white);
 		/* button enable & disable */
-		// tr.setEnabled(true);
-		// tr.setEnabled(true);
+		tr.setEnabled(false);
 		
 		JPanel horsepl = new JPanel();
 	    horsepl.setLayout(new GridLayout(2,1));
 	    horsepl.setPreferredSize(new Dimension(660, 240));
-	      
+	    
 	    JLabel labelP1 = new JLabel();
 	    labelP1.setText("Player1");
 	    labelP1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -113,8 +122,9 @@ public class Frame extends JFrame{
 		button2.add(tr);
 		
 		rpanel.add(horsepl);
+		rpanel.add(ypanel);
 		rpanel.add(button1);
-		rpanel.add(button2);
+		rpanel.add(button2,BorderLayout.SOUTH);
 		
 		add(lpanel);
 		add(rpanel);
@@ -125,11 +135,22 @@ public class Frame extends JFrame{
 		setVisible(true);
 	}
 	
+	void enableButton(boolean b) {
+		lb.setEnabled(b);
+		rb.setEnabled(b);
+		tr.setEnabled(b);
+	}
+	
+	char ReturnC() {
+		return c;
+	}
+	
 	class Left implements ActionListener {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			c = 'l';
+//			LREnable(false);
 		}
 	}
 	class Right implements ActionListener {
@@ -137,13 +158,15 @@ public class Frame extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			c = 'r';
+//			LREnable(false);
 		}
 	}
 	class Throw implements ActionListener {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			yut.Throw();
+			game.throwYut();
+//			TEnable(false);
 		}
 	}
 }
