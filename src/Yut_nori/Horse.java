@@ -1,7 +1,6 @@
 package Yutnori;
 
 public class Horse {
-
 	private int position = -1;
 	int posx, posy;
 	int go;
@@ -9,7 +8,6 @@ public class Horse {
 	Board b;
 	public int id;
 	public int num;
-	HorsePanel p;
 	
 	void getBoardPos(Board board) {
 		b = board;
@@ -24,17 +22,13 @@ public class Horse {
 	void getDirection (Frame f) {
 		s = f.ReturnC();
 	}
-	void getHorsePanel(HorsePanel panel) {
-		p = panel;
-	}
-
 	int getposition() {
 		return this.position;
 	}
 	void gotoStart() {//이건 걍 잡아먹히면... Game에서 실행시켜주면 안될까...?
 		this.position = -1;
 	}
-	void changep () {
+	int changep () {
 
 		char left = 'l';
 		char right = 'r';
@@ -42,7 +36,6 @@ public class Horse {
 		switch(position) {
 		//position에 업데이트 해주는데 상대편 말 있는지 먼저 체크, 있으면 걔 위치 초기화하는 함수 부르고
 		//아니면 그냥 그 말 개수 불러와서 Horse[num]에 Horse 업데이트 해주고 개수도++
-		//상대 말 있으면 
 		case 5:
 			if(s == left) {
 				this.position = 20+(go-1);
@@ -88,11 +81,11 @@ public class Horse {
 		}
 		
 		if(this.num<4&&b.pos[position].opponent_num>0 | this.num>=4&&b.pos[position].player_num>0) {
-			//보드의 잡아먹는 함수 call 되려나?
+			return position;//잡아먹었을 때 그 자리 return. 그럼 그 자리에 있는 지금 턴이 아닌, 잡아먹혀야 할 말을 없애주는 거.
 		}
-		
-		if(position >= 30) {
-			//여기서 player의 score을 ++해야하는데...
+		else {
+			return -1;
 		}
+
 	}
 }
